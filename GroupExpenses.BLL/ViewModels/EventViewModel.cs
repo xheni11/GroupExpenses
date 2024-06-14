@@ -1,6 +1,5 @@
-﻿using GroupExpenses.DTOs;
-
-namespace GroupExpenses.BLL.DTOs
+﻿
+namespace GroupExpenses.BLL.ViewModels
 {
    public class EventViewModel
    {

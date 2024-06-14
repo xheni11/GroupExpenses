@@ -1,4 +1,4 @@
-﻿namespace GroupExpenses.DTOs
+﻿namespace GroupExpenses.BLL.ViewModels
 {
    public class UserViewModel
    {

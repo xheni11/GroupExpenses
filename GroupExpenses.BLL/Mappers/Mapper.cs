@@ -1,12 +1,7 @@
-﻿using GroupExpenses.BLL.DTOs;
+﻿using GroupExpenses.BLL.ViewModels;
 using GroupExpenses.Domain.Entities;
-using GroupExpenses.DTOs;
 using GroupExpenses.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace GroupExpenses.BLL.Mappers
 {

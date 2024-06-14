@@ -6,7 +6,7 @@ namespace GroupExpenses.Domain.IRepositories
    {
       Task<User> GetById(int id);
       Task<IEnumerable<User>> GetUsers();
-      Task<int>Add(User user);
+      Task<User>Add(User user);
       Task Delete(int id);
       Task Update(User user);
    }

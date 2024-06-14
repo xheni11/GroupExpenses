@@ -1,6 +1,6 @@
 ﻿using GroupExpenses.Enums;
 
-namespace GroupExpenses.DTOs
+namespace GroupExpenses.BLL.ViewModels
 {
    public class ReceiptViewModel
    {

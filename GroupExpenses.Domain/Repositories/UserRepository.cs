@@ -22,11 +22,11 @@ namespace GroupExpenses.Domain.Repositories
       {
          return await _user.ToListAsync();
       }
-      public async Task<int> Add(User user)
+      public async Task<User> Add(User user)
       {
          var addedUser = await _user.AddAsync(user);
          await  _context.SaveChangesAsync();
-         return addedUser.Entity.Id;
+         return addedUser.Entity;
       }
      
       public async Task Delete(int id)
