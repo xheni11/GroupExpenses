@@ -14,6 +14,7 @@ namespace GroupExpenses.Domain.Persistence
       public DbSet<Receipt> Receipts { get; set; }
       public DbSet<Event> Events { get; set; }
       public DbSet<UserEvent> UserEvents { get; set; }
+      public DbSet<ReceiptUser> ReceiptUsers { get; set; }
 
       protected override void OnModelCreating(ModelBuilder modelBuilder)
       {
@@ -21,6 +22,8 @@ namespace GroupExpenses.Domain.Persistence
          modelBuilder.Entity<User>().ToTable("User");
          modelBuilder.Entity<UserEvent>().ToTable("UserEvent");
          modelBuilder.Entity<Receipt>().ToTable("Receipt");
+         modelBuilder.Entity<ReceiptUser>().ToTable("ReceiptUser");
+         ;
       }
    }
 }

@@ -25,9 +25,7 @@ namespace GroupExpenses.BLL.Mappers
          {
             Id = user.Id,
             FirstName = user.FirstName,
-            LastName = user.LastName,
-            TotalDept = user.TotalDept,
-            TotalPaid = user.TotalPaid
+            LastName = user.LastName
          };
       }
 
@@ -53,9 +51,7 @@ namespace GroupExpenses.BLL.Mappers
          {
             Id = user.Id,
             FirstName = user.FirstName,
-            LastName = user.LastName,
-            TotalDept = user.TotalDept,
-            TotalPaid = user.TotalPaid
+            LastName = user.LastName
          };
       }
 
@@ -68,7 +64,6 @@ namespace GroupExpenses.BLL.Mappers
             Details = receipt.Description,
             EventId = receipt.EventId,
             Name = receipt.Name,
-            PaidById = receipt.PaidBy.Id,
             Price = receipt.Price,
             PriceInEur = receipt.PriceInEur
          };
@@ -87,6 +82,11 @@ namespace GroupExpenses.BLL.Mappers
             Price = receipt.Price,
             PriceInEur = receipt.PriceInEur
          };
+      }
+
+      public static IEnumerable<ReceiptViewModel> ToReceiptViewModel(IEnumerable<Receipt> receipts)
+      {
+         return receipts.Select(r => ToReceiptViewModel(r));
       }
    }
 }

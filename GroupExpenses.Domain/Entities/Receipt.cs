@@ -9,12 +9,10 @@ namespace GroupExpenses.Domain.Entities
          [ForeignKey(nameof(EventId))]
          public Event Event { get; set; }
          public string Name { get; set; }
-         public double Price { get; set; }
-         public double PriceInEur { get; set; }
+         public decimal Price { get; set; }
+         public decimal PriceInEur { get; set; }
          public string Details { get; set; }
          public int Currency { get; set; }
-         public int PaidById { get; set; }
-         [ForeignKey(nameof(PaidById))]
          public User PaidBy { get; set; }
          public IEnumerable<User> PaidFor { get; set; }
    }

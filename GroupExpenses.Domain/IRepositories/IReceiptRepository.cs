@@ -6,8 +6,10 @@ namespace GroupExpenses.Domain.IRepositories
    {
       Task<Receipt> GetById(int id);
       Task<IEnumerable<Receipt>> GetReceiptsByEvent(int eventId);
-      Task<int>Add(Receipt receipt);
+      Task<Receipt>Add(Receipt receipt);
       Task Delete(int id);
       Task Update(Receipt receipt);
+      Task<IEnumerable<Receipt>> GetReceiptsPaidForUserId(int userId);
+      Task<IEnumerable<Receipt>> GetReceiptsPaidByUserId(int userId);
    }
 }

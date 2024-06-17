@@ -8,11 +8,13 @@ namespace GroupExpenses.Domain.Repositories
    public class ReceiptRepository:IReceiptRepository
    {
         private readonly DbSet<Receipt> _receipt;
+        private readonly DbSet<ReceiptUser> _receiptUser;
         private readonly GroupExpensesContext _context;
         public ReceiptRepository(GroupExpensesContext context)
         {
             _context = context;
             _receipt = context.Set<Receipt>();
+            _receiptUser = context.Set<ReceiptUser>();
         }
         public async Task<Receipt> GetById(int id)
         {   
@@ -22,11 +24,19 @@ namespace GroupExpenses.Domain.Repositories
       {
          return await _receipt.Where(r => r.EventId == eventId).ToListAsync();
       }
-      public async Task<int> Add(Receipt receipt)
+      public async Task<IEnumerable<Receipt>> GetReceiptsPaidForUserId(int userId)
+      {
+         return await _receiptUser.Where(r => r.PaidForId == userId).Select(r => r.Receipt).ToListAsync();
+      }
+      public async Task<IEnumerable<Receipt>> GetReceiptsPaidByUserId(int userId)
+      {
+         return await _receiptUser.Where(r => r.PaidById == userId).Select(r => r.Receipt).ToListAsync();
+      }
+      public async Task<Receipt> Add(Receipt receipt)
       {
          var addedReceipt = await _receipt.AddAsync(receipt);
          await  _context.SaveChangesAsync();
-         return addedReceipt.Entity.Id;
+         return addedReceipt.Entity;
       }
      
       public async Task Delete(int id)

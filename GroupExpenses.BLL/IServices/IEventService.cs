@@ -1,4 +1,4 @@
-﻿using GroupExpenses.BLL.DTOs;
+﻿using GroupExpenses.BLL.ViewModels;
 
 namespace GroupExpenses.BLL.IServices
 {

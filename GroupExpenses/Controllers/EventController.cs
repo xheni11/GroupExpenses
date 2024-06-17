@@ -1,5 +1,5 @@
-using GroupExpenses.BLL.DTOs;
 using GroupExpenses.BLL.IServices;
+using GroupExpenses.BLL.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GroupExpenses.Controllers

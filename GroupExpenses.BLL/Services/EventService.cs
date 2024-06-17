@@ -1,6 +1,6 @@
-﻿using GroupExpenses.BLL.DTOs;
-using GroupExpenses.BLL.IServices;
+﻿using GroupExpenses.BLL.IServices;
 using GroupExpenses.BLL.Mappers;
+using GroupExpenses.BLL.ViewModels;
 using GroupExpenses.Domain.IRepositories;
 
 

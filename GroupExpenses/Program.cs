@@ -26,7 +26,7 @@ builder.Services.AddHttpClient();
 
 // Register services
 builder.Services.AddTransient<ExchangeRateAPIService>();
-builder.Services.AddTransient<CalculateExpenseService>();
+builder.Services.AddTransient<ReceiptService>();
 builder.Services.AddTransient<IEventService, EventService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IEventRepository, EventRepository>();
