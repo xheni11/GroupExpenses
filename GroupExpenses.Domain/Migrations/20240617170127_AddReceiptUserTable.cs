@@ -79,8 +79,7 @@ namespace GroupExpenses.Domain.Migrations
                         name: "FK_ReceiptUser_User_PaidForId",
                         column: x => x.PaidForId,
                         principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
