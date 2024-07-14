@@ -1,6 +1,6 @@
 ﻿namespace GroupExpenses.BLL.ViewModels
 {
-   public class UserViewModel
+   public record UserViewModel
    {
       public int Id { get; set; }
       public string FirstName { get; set; }

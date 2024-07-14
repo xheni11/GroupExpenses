@@ -26,12 +26,13 @@ builder.Services.AddHttpClient();
 
 // Register services
 builder.Services.AddTransient<ExchangeRateAPIService>();
-builder.Services.AddTransient<ReceiptService>();
+builder.Services.AddTransient<IReceiptService,ReceiptService>();
 builder.Services.AddTransient<IEventService, EventService>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IEventRepository, EventRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IReceiptRepository, ReceiptRepository>();
+builder.Services.AddTransient<IReportService,ReportService>();
 
 var app = builder.Build();
 

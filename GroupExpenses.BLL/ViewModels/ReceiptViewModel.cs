@@ -2,7 +2,7 @@
 
 namespace GroupExpenses.BLL.ViewModels
 {
-   public class ReceiptViewModel
+   public record ReceiptViewModel
    {
       public int Id { get; set; }
       public int EventId { get; set; }

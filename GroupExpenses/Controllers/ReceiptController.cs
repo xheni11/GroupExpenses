@@ -17,19 +17,19 @@ namespace GroupExpenses.Controllers
          _receiptService = receiptService;
       }
 
-      [HttpGet("/by-event{eventId}")]
+      [HttpGet("/by-event/{eventId}")]
       public async Task<IEnumerable<ReceiptViewModel>> GetReceiptsByEvent([FromRoute] int eventId)
       {
          return await _receiptService.GetReceiptsByEventId(eventId);
       }
 
-      [HttpGet("/by-paid-by{paidById}")]
+      [HttpGet("/by-paid-by/{paidById}")]
       public async Task<IEnumerable<ReceiptViewModel>> GetReceiptsByPaidBy([FromRoute] int paidById)
       {
          return await _receiptService.GetReceiptsPaidBy(paidById);
       }
 
-      [HttpGet("/by-paid-for{paidForId}")]
+      [HttpGet("/by-paid-for/{paidForId}")]
       public async Task<IEnumerable<ReceiptViewModel>> GetReceiptsByPaidFor([FromRoute] int paidForId)
       {
          return await _receiptService.GetReceiptsPaidBy(paidForId);

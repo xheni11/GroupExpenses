@@ -1,7 +1,7 @@
 ﻿
 namespace GroupExpenses.BLL.ViewModels
 {
-   public class EventViewModel
+   public record EventViewModel
    {
       public int Id { get; set; }
       public string Name { get; set; }
