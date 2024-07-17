@@ -32,7 +32,8 @@ builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IEventRepository, EventRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IReceiptRepository, ReceiptRepository>();
-builder.Services.AddTransient<IReportService,ReportService>();
+builder.Services.AddTransient<IReportService, ReportService>();
+builder.Services.AddTransient<ICurrencyExchangeService, CurrencyExchangeService>();
 
 var app = builder.Build();
 

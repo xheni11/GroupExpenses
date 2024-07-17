@@ -9,7 +9,7 @@ namespace GroupExpenses.BLL.Mappers
     public static class ReceiptMapper
     {
 
-      public static Receipt ToEntity(AddReceiptViewModel receipt)
+      public static Receipt ToEntity(AddReceiptViewModel receipt, decimal priceInEur)
       {
          return new Receipt
          {
@@ -18,12 +18,11 @@ namespace GroupExpenses.BLL.Mappers
             EventId = receipt.EventId,
             Name = receipt.Name,
             Price = receipt.Price,
-            // TODO Calculate price in eur based on exchange service
-            // PriceInEur = receipt.PriceInEur
+            PriceInEur = priceInEur
          };
       }
 
-      public static Receipt ToEntity(UpdateReceiptViewModel receipt)
+      public static Receipt ToEntity(UpdateReceiptViewModel receipt, decimal priceInEur)
       {
          return new Receipt
          {
@@ -33,8 +32,7 @@ namespace GroupExpenses.BLL.Mappers
             EventId = receipt.EventId,
             Name = receipt.Name,
             Price = receipt.Price,
-            // TODO Calculate price in eur based on exchange service
-            // PriceInEur = receipt.PriceInEur
+            PriceInEur = priceInEur
          };
       }
 
