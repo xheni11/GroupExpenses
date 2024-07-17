@@ -30,13 +30,13 @@ namespace GroupExpenses.Controllers
       }
 
       [HttpPost]
-      public async Task<GetUserViewModel> Add([FromBody] GetUserViewModel user)
+      public async Task<GetUserViewModel> Add([FromBody] AddUserViewModel user)
       {
          return await _userService.Add(user);
       }
 
       [HttpPut]
-      public async Task<GetUserViewModel> Update([FromBody] GetUserViewModel user)
+      public async Task<GetUserViewModel> Update([FromBody] UpdateUserViewModel user)
       {
          return await _userService.Update(user);
       }

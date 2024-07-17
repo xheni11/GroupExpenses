@@ -42,13 +42,13 @@ namespace GroupExpenses.Controllers
       }
 
       [HttpPost]
-      public async Task<GetReceiptViewModel> Add([FromBody] GetReceiptViewModel receipt)
+      public async Task<GetReceiptViewModel> Add([FromBody] AddReceiptViewModel receipt)
       {
          return await _receiptService.Add(receipt);
       }
 
       [HttpPut]
-      public async Task<GetReceiptViewModel> Update([FromBody] GetReceiptViewModel receipt)
+      public async Task<GetReceiptViewModel> Update([FromBody] UpdateReceiptViewModel receipt)
       {
          return await _receiptService.Update(receipt);
       }
