@@ -1,10 +1,10 @@
 using GroupExpenses.BLL.IServices;
-using GroupExpenses.BLL.ViewModels;
+using GroupExpenses.BLL.ViewModels.User;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GroupExpenses.Controllers
 {
-   [ApiController]
+    [ApiController]
    [Route("[controller]")]
    public class UserController: ControllerBase
    {
@@ -18,25 +18,25 @@ namespace GroupExpenses.Controllers
       }
 
       [HttpGet]
-      public async Task<IEnumerable<UserViewModel>> GetAll()
+      public async Task<IEnumerable<GetUserViewModel>> GetAll()
       {
          return await _userService.GetAll();
       }
 
       [HttpGet("{userId}")]
-      public async Task<UserViewModel> GetUserById([FromRoute] int userId)
+      public async Task<GetUserViewModel> GetUserById([FromRoute] int userId)
       {
          return await _userService.GetById(userId);
       }
 
       [HttpPost]
-      public async Task<UserViewModel> Add([FromBody] UserViewModel user)
+      public async Task<GetUserViewModel> Add([FromBody] GetUserViewModel user)
       {
          return await _userService.Add(user);
       }
 
       [HttpPut]
-      public async Task<UserViewModel> Update([FromBody] UserViewModel user)
+      public async Task<GetUserViewModel> Update([FromBody] GetUserViewModel user)
       {
          return await _userService.Update(user);
       }

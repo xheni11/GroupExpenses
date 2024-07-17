@@ -1,12 +1,12 @@
 ﻿using GroupExpenses.BLL.IServices;
 using GroupExpenses.BLL.Mappers;
-using GroupExpenses.BLL.ViewModels;
+using GroupExpenses.BLL.ViewModels.User;
 using GroupExpenses.Domain.IRepositories;
 
 
 namespace GroupExpenses.BLL.Services
 {
-   public class UserService: IUserService 
+    public class UserService: IUserService 
    {
       private readonly IUserRepository _userRepository;
 
@@ -14,20 +14,20 @@ namespace GroupExpenses.BLL.Services
       {
          _userRepository = userRepository;
       }
-      public async Task<IEnumerable<UserViewModel>> GetAll()
+      public async Task<IEnumerable<GetUserViewModel>> GetAll()
       {
          var users = await _userRepository.GetUsers();
-         return users.Select(u => Mapper.ToUserViewModel(u));
+         return users.Select(u => UserMapper.ToViewModel(u));
       }
 
-      public async Task<UserViewModel> Add(UserViewModel userViewModel)
+      public async Task<GetUserViewModel> Add(AddUserViewModel userViewModel)
       {
-         var addedUser = await _userRepository.Add(Mapper.ToUserEntity(userViewModel));
-         return Mapper.ToUserViewModel(addedUser);
+         var addedUser = await _userRepository.Add(UserMapper.ToEntity(userViewModel));
+         return UserMapper.ToViewModel(addedUser);
       }
-      public async Task<UserViewModel> Update(UserViewModel userViewModel)
+      public async Task<GetUserViewModel> Update(UpdateUserViewModel userViewModel)
       {
-         await _userRepository.Update(Mapper.ToUserEntity(userViewModel));
+         await _userRepository.Update(UserMapper.ToEntity(userViewModel));
          return await GetById(userViewModel.Id);
       }
       public async Task Delete(int userId)
@@ -35,10 +35,10 @@ namespace GroupExpenses.BLL.Services
          await _userRepository.Delete(userId);
       }
 
-      public async Task<UserViewModel> GetById(int userId)
+      public async Task<GetUserViewModel> GetById(int userId)
       {
          var user = await _userRepository.GetById(userId);
-         return Mapper.ToUserViewModel(user);
+         return UserMapper.ToViewModel(user);
       }
    }
 }

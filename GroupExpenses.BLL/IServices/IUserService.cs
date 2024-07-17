@@ -1,14 +1,13 @@
-﻿
-using GroupExpenses.BLL.ViewModels;
+﻿using GroupExpenses.BLL.ViewModels.User;
 
 namespace GroupExpenses.BLL.IServices
 {
-   public interface IUserService
+    public interface IUserService
    {
-      Task<IEnumerable<UserViewModel>> GetAll();
-      Task<UserViewModel> GetById(int id);
-      Task<UserViewModel> Add(UserViewModel userViewModel);
-      Task<UserViewModel> Update(UserViewModel userViewModel);
+      Task<IEnumerable<GetUserViewModel>> GetAll();
+      Task<GetUserViewModel> GetById(int id);
+      Task<GetUserViewModel> Add(AddUserViewModel userViewModel);
+      Task<GetUserViewModel> Update(UpdateUserViewModel userViewModel);
       Task Delete(int id);
    }
 }

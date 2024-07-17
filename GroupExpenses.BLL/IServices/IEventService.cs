@@ -1,13 +1,14 @@
 ﻿using GroupExpenses.BLL.ViewModels;
+using GroupExpenses.BLL.ViewModels.Event;
 
 namespace GroupExpenses.BLL.IServices
 {
-   public interface IEventService
+    public interface IEventService
    {
-      Task<IEnumerable<EventViewModel>> GetEventsByUser(int userId);
-      Task<EventViewModel> GetEvent(int eventId);
-      Task<EventViewModel> Add(EventViewModel eventViewModel);
-      Task<EventViewModel> Update(EventViewModel eventViewModel);
+      Task<IEnumerable<GetEventViewModel>> GetEventsByUser(int userId);
+      Task<GetEventViewModel> GetEvent(int eventId);
+      Task<GetEventViewModel> Add(AddEventViewModel eventViewModel);
+      Task<GetEventViewModel> Update(UpdateEventViewModel eventViewModel);
       Task Delete(int eventId);
    }
 }

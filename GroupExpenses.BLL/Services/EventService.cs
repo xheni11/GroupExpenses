@@ -1,12 +1,13 @@
 ﻿using GroupExpenses.BLL.IServices;
 using GroupExpenses.BLL.Mappers;
 using GroupExpenses.BLL.ViewModels;
+using GroupExpenses.BLL.ViewModels.Event;
 using GroupExpenses.Domain.IRepositories;
 
 
 namespace GroupExpenses.BLL.Services
 {
-   public class EventService: IEventService 
+    public class EventService: IEventService 
    {
       private readonly IEventRepository _eventRepository;
 
@@ -14,20 +15,20 @@ namespace GroupExpenses.BLL.Services
       {
          _eventRepository = eventRepository;
       }
-      public async Task<IEnumerable<EventViewModel>> GetEventsByUser(int userId)
+      public async Task<IEnumerable<GetEventViewModel>> GetEventsByUser(int userId)
       {
          var userEvents = await _eventRepository.GetEventsByUser(userId);
-         return userEvents.Select(e => Mapper.ToEventViewModel(e.Event));
+         return userEvents.Select(e => EventMapper.ToViewModel(e.Event));
       }
 
-      public async Task<EventViewModel> Add(EventViewModel eventViewModel)
+      public async Task<GetEventViewModel> Add(AddEventViewModel eventViewModel)
       {
-         var addedEvent = await _eventRepository.Add(Mapper.ToEventEntity(eventViewModel));
-         return Mapper.ToEventViewModel(addedEvent);
+         var addedEvent = await _eventRepository.Add(EventMapper.ToEntity(eventViewModel));
+         return EventMapper.ToViewModel(addedEvent);
       }
-      public async Task<EventViewModel> Update(EventViewModel eventViewModel)
+      public async Task<GetEventViewModel> Update(UpdateEventViewModel eventViewModel)
       {
-         await _eventRepository.Update(Mapper.ToEventEntity(eventViewModel));
+         await _eventRepository.Update(EventMapper.ToEntity(eventViewModel));
          return await GetEvent(eventViewModel.Id);
       }
       public async Task Delete(int eventId)
@@ -35,10 +36,10 @@ namespace GroupExpenses.BLL.Services
          await _eventRepository.Delete(eventId);
       }
 
-      public async Task<EventViewModel> GetEvent(int eventId)
+      public async Task<GetEventViewModel> GetEvent(int eventId)
       {
          var eventEntity = await _eventRepository.GetById(eventId);
-         return Mapper.ToEventViewModel(eventEntity);
+         return EventMapper.ToViewModel(eventEntity);
       }
    }
 }
