@@ -5,13 +5,15 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupExpenses", "GroupExpenses\GroupExpenses.csproj", "{EB74B3E0-08E6-4B44-B395-AD7E66DFF077}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupExpenses.Domain", "GroupExpenses.Domain\GroupExpenses.Domain.csproj", "{839DA6CE-84AF-4167-AD9B-9723C84174CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupExpenses.Domain", "GroupExpenses.Domain\GroupExpenses.Domain.csproj", "{839DA6CE-84AF-4167-AD9B-9723C84174CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupExpenses.BLL", "GroupExpenses.BLL\GroupExpenses.BLL.csproj", "{08155E9D-A504-4560-AC6E-F094B5547921}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupExpenses.BLL", "GroupExpenses.BLL\GroupExpenses.BLL.csproj", "{08155E9D-A504-4560-AC6E-F094B5547921}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupExpenses.ExtrenalAPI", "GroupExpenses.ExtrenalAPI\GroupExpenses.ExtrenalAPI.csproj", "{85DBCC70-E297-469B-8B13-50D225B1985C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupExpenses.ExtrenalAPI", "GroupExpenses.ExtrenalAPI\GroupExpenses.ExtrenalAPI.csproj", "{85DBCC70-E297-469B-8B13-50D225B1985C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupExpenses.Shared", "GroupExpenses.Shared\GroupExpenses.Shared.csproj", "{5F6FD8C0-9AA0-472B-BBAB-08CDBA822F1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupExpenses.Shared", "GroupExpenses.Shared\GroupExpenses.Shared.csproj", "{5F6FD8C0-9AA0-472B-BBAB-08CDBA822F1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupExpenses.UnitTests", "GroupExpenses.UnitTests\GroupExpenses.UnitTests.csproj", "{07E9CA5E-01B0-4D36-865E-60933CE417CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{5F6FD8C0-9AA0-472B-BBAB-08CDBA822F1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F6FD8C0-9AA0-472B-BBAB-08CDBA822F1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F6FD8C0-9AA0-472B-BBAB-08CDBA822F1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E9CA5E-01B0-4D36-865E-60933CE417CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07E9CA5E-01B0-4D36-865E-60933CE417CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E9CA5E-01B0-4D36-865E-60933CE417CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07E9CA5E-01B0-4D36-865E-60933CE417CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
