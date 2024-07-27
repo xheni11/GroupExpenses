@@ -23,9 +23,7 @@ namespace GroupExpenses.APIGatway
          response.EnsureSuccessStatusCode();
 
          var responseBody = await response.Content.ReadAsStringAsync();
-         return JsonConvert.DeserializeObject<ExchangeRatesResponse>(responseBody);
-            
-         
+         return JsonConvert.DeserializeObject<ExchangeRatesResponse>(responseBody); 
       }
    }
 }
