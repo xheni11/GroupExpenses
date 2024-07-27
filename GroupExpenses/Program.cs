@@ -20,6 +20,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.Configure<ExternalApiSettings>(builder.Configuration.GetSection("ExternalApi"));
 builder.Services.AddDbContext<GroupExpensesContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"),  x => x.MigrationsAssembly("GroupExpenses.Domain")));
+builder.Services.AddMemoryCache();
 
 // Register HttpClient
 builder.Services.AddHttpClient();
