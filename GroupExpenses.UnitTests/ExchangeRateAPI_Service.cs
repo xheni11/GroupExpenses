@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace GroupExpenses.UnitTests
 {
-   internal class ExchangeRateAPIService_Tests
+   public class ExchangeRateAPI_Service
    {
+
    }
 }

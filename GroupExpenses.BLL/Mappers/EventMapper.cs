@@ -14,7 +14,7 @@ namespace GroupExpenses.BLL.Mappers
             Id = entityEvent.Id,
             Location = entityEvent.Location,
             Name = entityEvent.Name,
-            Participants = entityEvent.Participants.Select(u => UserMapper.ToViewModel(u))
+            Participants = entityEvent.Participants?.Select(u => UserMapper.ToViewModel(u))
          };
       }
 
