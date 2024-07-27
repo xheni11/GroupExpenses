@@ -10,8 +10,6 @@ namespace GroupExpenses.BLL.ViewModels.Event
 
         [MaxLength(500)]
         public string? Details { get; set; }
-
-        // TODO integration with loaction extrenal api
         public string? Location { get; set; }
     }
 }
