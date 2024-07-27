@@ -18,33 +18,33 @@ namespace GroupExpenses.Controllers
       }
 
       [HttpGet("/by-event/{eventId}")]
-      public async Task<IEnumerable<GetReceiptViewModel>> GetReceiptsByEvent([FromRoute] int eventId)
+      public async Task<IActionResult> GetReceiptsByEvent([FromRoute] int eventId)
       {
-         return await _receiptService.GetReceiptsByEventId(eventId);
+         return Ok(await _receiptService.GetReceiptsByEventId(eventId));
       }
 
       [HttpGet("/by-paid-by/{paidById}")]
-      public async Task<IEnumerable<GetReceiptViewModel>> GetReceiptsByPaidBy([FromRoute] int paidById)
+      public async Task<IActionResult> GetReceiptsByPaidBy([FromRoute] int paidById)
       {
-         return await _receiptService.GetReceiptsPaidBy(paidById);
+         return Ok(await _receiptService.GetReceiptsPaidBy(paidById));
       }
 
       [HttpGet("/by-paid-for/{paidForId}")]
-      public async Task<IEnumerable<GetReceiptViewModel>> GetReceiptsByPaidFor([FromRoute] int paidForId)
+      public async Task<IActionResult> GetReceiptsByPaidFor([FromRoute] int paidForId)
       {
-         return await _receiptService.GetReceiptsPaidBy(paidForId);
+         return Ok(await _receiptService.GetReceiptsPaidBy(paidForId));
       }
 
       [HttpGet("{receiptId}")]
-      public async Task<GetReceiptViewModel> GetReceipt([FromRoute] int receiptId)
+      public async Task<IActionResult> GetReceipt([FromRoute] int receiptId)
       {
-         return await _receiptService.GetById(receiptId);
+         return Ok(await _receiptService.GetById(receiptId));
       }
 
       [HttpPost]
-      public async Task<GetReceiptViewModel> Add([FromBody] AddReceiptViewModel receipt)
+      public async Task<IActionResult> Add([FromBody] AddReceiptViewModel receipt)
       {
-         return await _receiptService.Add(receipt);
+         return Ok(await _receiptService.Add(receipt));
       }
 
       [HttpPut]
@@ -54,11 +54,10 @@ namespace GroupExpenses.Controllers
       }
 
       [HttpDelete("{receptId}")]
-      public async Task<bool> Delete([FromRoute] int receptId)
+      public async Task<IActionResult> Delete([FromRoute] int receptId)
       {
          await _receiptService.Delete(receptId);
-         // TODO add a response view model 
-         return true ;
+         return Ok() ;
       }
    }
 }

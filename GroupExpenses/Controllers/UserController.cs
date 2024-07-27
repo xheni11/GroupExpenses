@@ -18,34 +18,34 @@ namespace GroupExpenses.Controllers
       }
 
       [HttpGet]
-      public async Task<IEnumerable<GetUserViewModel>> GetAll()
+      public async Task<IActionResult> GetAll()
       {
-         return await _userService.GetAll();
+         return Ok(await _userService.GetAll());
       }
 
       [HttpGet("{userId}")]
-      public async Task<GetUserViewModel> GetUserById([FromRoute] int userId)
+      public async Task<IActionResult> GetUserById([FromRoute] int userId)
       {
-         return await _userService.GetById(userId);
+         return Ok(await _userService.GetById(userId));
       }
 
       [HttpPost]
-      public async Task<GetUserViewModel> Add([FromBody] AddUserViewModel user)
+      public async Task<IActionResult> Add([FromBody] AddUserViewModel user)
       {
-         return await _userService.Add(user);
+         return Ok(await _userService.Add(user));
       }
 
       [HttpPut]
-      public async Task<GetUserViewModel> Update([FromBody] UpdateUserViewModel user)
+      public async Task<IActionResult> Update([FromBody] UpdateUserViewModel user)
       {
-         return await _userService.Update(user);
+         return Ok(await _userService.Update(user));
       }
 
       [HttpDelete("{userId}")]
-      public async Task<bool> Delete([FromRoute] int userId)
+      public async Task<IActionResult> Delete([FromRoute] int userId)
       {
          await _userService.Delete(userId);
-         return true ;
+         return Ok() ;
       }
    }
 }

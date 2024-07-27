@@ -16,9 +16,9 @@ namespace GroupExpenses.Controllers
       }
 
       [HttpGet("/kredit-debit/{userId}/{eventId}")]
-      public async Task<IEnumerable<DebitKreditByParticipantReportViewModel>> GetReceiptsByEvent([FromRoute] int userId, int eventId)
+      public async Task<IActionResult> GetReceiptsByEvent([FromRoute] int userId, int eventId)
       {
-         return await _reportService.GetDebitsAndKreditsOfUserByOtherUsers(eventId, userId);
+         return Ok(await _reportService.GetDebitsAndKreditsOfUserByOtherUsers(eventId, userId));
       }
    }
 }
