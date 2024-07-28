@@ -1,6 +1,6 @@
-﻿using GroupExpenses.APIGatway;
-using GroupExpenses.Config;
+﻿using GroupExpenses.Config;
 using GroupExpenses.Enums;
+using GroupExpenses.ExtrenalAPI.ExtrenalAPIService;
 using Microsoft.Extensions.Options;
 using Moq;
 using Moq.Protected;
@@ -15,7 +15,7 @@ namespace GroupExpenses.UnitTests
       private readonly Mock<HttpClient> _httpClientMock;
       private readonly Mock<ExternalApiSettings> _apiSettingsMock;
       private readonly Mock<IOptions<ExternalApiSettings>> _optionsMock;
-      private readonly ExchangeRateAPIService _exchangeRateService;
+      private readonly IExchangeRateAPIService _exchangeRateService;
 
       public ExchangeRateService_Tests()
       {

@@ -3,9 +3,9 @@ using GroupExpenses.Enums;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
-namespace GroupExpenses.APIGatway
+namespace GroupExpenses.ExtrenalAPI.ExtrenalAPIService
 {
-   public class ExchangeRateAPIService
+   public class ExchangeRateAPIService:IExchangeRateAPIService
    {
       private readonly HttpClient _httpClient;
       private readonly ExternalApiSettings _apiSettings;

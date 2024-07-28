@@ -1,6 +1,6 @@
-﻿using GroupExpenses.APIGatway;
-using GroupExpenses.BLL.IServices;
+﻿using GroupExpenses.BLL.IServices;
 using GroupExpenses.Enums;
+using GroupExpenses.ExtrenalAPI.ExtrenalAPIService;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 
@@ -8,12 +8,12 @@ namespace GroupExpenses.BLL.Services
 {
    public class CurrencyExchangeService : ICurrencyExchangeService
    {
-      private readonly ExchangeRateAPIService _exchangeRateAPIService;
+      private readonly IExchangeRateAPIService _exchangeRateAPIService;
       private readonly IMemoryCache _memoryCache;
       private readonly IConfiguration _config;
       private readonly MemoryCacheEntryOptions _options;
       private const int MINUTES_PER_HOUR = 60;
-      public CurrencyExchangeService(ExchangeRateAPIService exchangeRateAPIService,IMemoryCache memoryCache,IConfiguration config)
+      public CurrencyExchangeService(IExchangeRateAPIService exchangeRateAPIService,IMemoryCache memoryCache,IConfiguration config)
       {
          _exchangeRateAPIService = exchangeRateAPIService;
          _memoryCache = memoryCache;

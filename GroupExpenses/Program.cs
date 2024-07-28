@@ -1,10 +1,10 @@
-using GroupExpenses.APIGatway;
 using GroupExpenses.BLL.IServices;
 using GroupExpenses.BLL.Services;
 using GroupExpenses.Config;
 using GroupExpenses.Domain.IRepositories;
 using GroupExpenses.Domain.Persistence;
 using GroupExpenses.Domain.Repositories;
+using GroupExpenses.ExtrenalAPI.ExtrenalAPIService;
 using GroupExpenses.Services;
 using GroupExpenses.Shared.Exceptions;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +26,7 @@ builder.Services.AddMemoryCache();
 builder.Services.AddHttpClient();
 
 // Register services
-builder.Services.AddTransient<ExchangeRateAPIService>();
+builder.Services.AddTransient<IExchangeRateAPIService,ExchangeRateAPIService>();
 builder.Services.AddTransient<IReceiptService,ReceiptService>();
 builder.Services.AddTransient<IEventService, EventService>();
 builder.Services.AddTransient<IUserService, UserService>();

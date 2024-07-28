@@ -5,6 +5,7 @@
 
       EUR = 1,
       GBP = 2,
-      ALL = 3
+      ALL = 3,
+      USD = 4
     }
 }
