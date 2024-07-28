@@ -22,11 +22,11 @@ namespace GroupExpenses.UnitTests
          _httpMessageHandlerMock = new Mock<HttpMessageHandler>();
          _httpClientMock = new Mock<HttpClient>(_httpMessageHandlerMock.Object);
          _apiSettingsMock = new Mock<ExternalApiSettings>();
-         _optionsMock = new Mock<IOptions<ExternalApiSettings>>();
+         _apiSettingsMock.SetupAllProperties();
 
-         _apiSettingsMock.SetupGet(x => x.ExchangeRateUrl).Returns("https://api.exchangeratesapi.io/");
-         _apiSettingsMock.SetupGet(x => x.Endpoint).Returns("latest?base=");
-         _optionsMock.SetupGet(x => x.Value).Returns(_apiSettingsMock.Object);
+         _apiSettingsMock.Object.ExchangeRateUrl = "https://open.er-api.com/v6/latest/";
+         _optionsMock = new Mock<IOptions<ExternalApiSettings>>();
+         _optionsMock.Setup(x => x.Value).Returns(_apiSettingsMock.Object);
 
          _exchangeRateService = new ExchangeRateAPIService(_httpClientMock.Object,_optionsMock.Object);
       }
