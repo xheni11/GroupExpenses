@@ -41,8 +41,8 @@ namespace GroupExpenses.BLL.Services
             .GroupBy(r => r.ParticipantName)
             .Select(r => new DebitKreditByParticipantReportViewModel
              {
-                Kredit = r.First().Kredit,
-                Debit = r.First().Debit,
+                Kredit = r.Sum(k => k.Kredit),
+                Debit = r.Sum(k => k.Debit),
                 ParticipantName = r.Key
              });
       }
