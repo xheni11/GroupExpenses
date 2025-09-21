@@ -1,117 +1,99 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React, {useMemo, useState} from 'react';
+import {Pressable, SafeAreaView, StatusBar, StyleSheet, Text, View} from 'react-native';
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import EventDetailScreen from './src/screens/EventDetailScreen';
+import EventListScreen from './src/screens/EventListScreen';
+import {EventSummary} from './src/types/event';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+type ScreenState =
+  | {key: 'list'}
+  | {
+      key: 'details';
+      event: EventSummary;
+    };
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+const App = (): React.JSX.Element => {
+  const [screen, setScreen] = useState<ScreenState>({key: 'list'});
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+  const headerTitle = useMemo(() => {
+    if (screen.key === 'details') {
+      return screen.event.name;
+    }
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+    return 'Group Expenses';
+  }, [screen]);
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  const showBackButton = screen.key === 'details';
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+    <SafeAreaView style={styles.safeArea}>
+      <StatusBar barStyle="light-content" backgroundColor="#1d3557" />
+      <View style={styles.header}>
+        <View style={styles.headerSide}>
+          {showBackButton ? (
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => setScreen({key: 'list'})}
+              style={({pressed}) => [styles.backButton, pressed && styles.backButtonPressed]}>
+              <Text style={styles.backButtonText}>‹ Events</Text>
+            </Pressable>
+          ) : null}
         </View>
-      </ScrollView>
+        <Text numberOfLines={1} style={styles.headerTitle}>
+          {headerTitle}
+        </Text>
+        <View style={styles.headerSide} />
+      </View>
+      <View style={styles.body}>
+        {screen.key === 'list' ? (
+          <EventListScreen onSelectEvent={event => setScreen({key: 'details', event})} />
+        ) : (
+          <EventDetailScreen eventId={screen.event.id} initialEvent={screen.event} />
+        )}
+      </View>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#f8fafc',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: '#1d3557',
   },
-  sectionDescription: {
-    marginTop: 8,
+  headerSide: {
+    width: 90,
+    alignItems: 'flex-start',
+  },
+  headerTitle: {
+    flex: 1,
+    color: '#fff',
     fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
     fontWeight: '700',
+    textAlign: 'center',
+    paddingHorizontal: 8,
+  },
+  backButton: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 16,
+  },
+  backButtonPressed: {
+    opacity: 0.8,
+  },
+  backButtonText: {
+    color: '#f1f5f9',
+    fontSize: 14,
+  },
+  body: {
+    flex: 1,
   },
 });
 
