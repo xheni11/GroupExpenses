@@ -9,9 +9,10 @@ namespace GroupExpenses.Services
    {
       private readonly IReceiptRepository _receiptRepository;
       private readonly ICurrencyExchangeService _currencyExchangeService;
-      public ReceiptService(IReceiptRepository receiptRepository)
+      public ReceiptService(IReceiptRepository receiptRepository, ICurrencyExchangeService currencyExchangeService)
       {
          _receiptRepository = receiptRepository;
+         currencyExchangeService = currencyExchangeService; 
       }
       public async Task<IEnumerable<GetReceiptViewModel>> GetReceiptsByEventId(int eventId)
       {

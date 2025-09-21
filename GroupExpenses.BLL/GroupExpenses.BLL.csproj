@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GroupExpenses.Domain\GroupExpenses.Domain.csproj" />
-    <ProjectReference Include="..\GroupExpenses.ExtrenalAPI\GroupExpenses.ExtrenalAPI.csproj" />
+    <ProjectReference Include="..\GroupExpenses.ExtrenalAPI\GroupExpenses.ExternalAPI.csproj" />
     <ProjectReference Include="..\GroupExpenses.Shared\GroupExpenses.Shared.csproj" />
   </ItemGroup>
 

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupExpenses.Domain", "Gro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupExpenses.BLL", "GroupExpenses.BLL\GroupExpenses.BLL.csproj", "{08155E9D-A504-4560-AC6E-F094B5547921}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupExpenses.ExtrenalAPI", "GroupExpenses.ExtrenalAPI\GroupExpenses.ExtrenalAPI.csproj", "{85DBCC70-E297-469B-8B13-50D225B1985C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupExpenses.ExternalAPI", "GroupExpenses.ExtrenalAPI\GroupExpenses.ExternalAPI.csproj", "{85DBCC70-E297-469B-8B13-50D225B1985C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroupExpenses.Shared", "GroupExpenses.Shared\GroupExpenses.Shared.csproj", "{5F6FD8C0-9AA0-472B-BBAB-08CDBA822F1E}"
 EndProject
